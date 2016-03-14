@@ -38,12 +38,12 @@
 			<properties>
 				<environment>development</environment>
 			</properties>
-		</profile>
-		<profile>
-			<id>preline</id>
 			<activation>
 				<activeByDefault>true</activeByDefault>
 			</activation>
+		</profile>
+		<profile>
+			<id>preline</id>
 			<properties>
 				<environment>preline</environment>
 			</properties>

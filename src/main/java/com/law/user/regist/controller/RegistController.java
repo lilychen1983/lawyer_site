@@ -14,16 +14,16 @@ import com.law.user.regist.bean.RegistForm;
 import com.law.user.regist.service.IRegistService;
 
 @Controller
-@RequestMapping("/livenotes/service")
+@RequestMapping("/user")
 public class RegistController {
 
 	@Resource(name = "registService")
 	private IRegistService registService;
 
-	@RequestMapping(value = "/regist", method = RequestMethod.POST)
-	public void valacode(@RequestBody RegistForm form, HttpServletResponse response) {
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public void valacode( HttpServletResponse response) {
 
-		Result result = registService.regist(form);
-		ResponseJsonUtils.responseJson(result.toString(), response);
+//		Result result = registService.regist(form);
+		ResponseJsonUtils.responseJson("name", response);
 	}
 }
