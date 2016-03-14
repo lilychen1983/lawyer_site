@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 自动搜索@Controller标注的类 -->
+	
+	<context:component-scan base-package="com.law" />
+<!-- 		<context:component-scan base-package="com.law.verify.service" /> -->
+	
+	<!-- 自动扫描@Controller注解 -->
+	<mvc:annotation-driven />
+
+	<!-- 拦截器配置 -->
+	<mvc:interceptors>
+		
+		<!-- 国际化处理器拦截器 -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
+	</mvc:interceptors>
+
+	<!-- 将不处理器的请求转交给 default Servlet 处理 -->
+	<mvc:default-servlet-handler/>
+
+	<!-- 用Cookie保存用户区域信息 -->
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+	    <property name="defaultLocale" value="zh_CN"></property>
+	</bean>
+
+	<!-- 文件上传解析 -->
+<!-- 	<bean id="multipartResolver" -->
+<!-- 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
+		<!-- one of the properties available; the maximum file size in bytes -->
+<!-- 		<property name="maxUploadSize" value="10485760" /> -->
+<!-- 	</bean> -->
+
+	<!-- Spring 主题配置   -->
+	<bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+		<property name="basenamePrefix" value="theme."/>
+	</bean>
+	<bean id="themeResolver" class="org.springframework.web.servlet.theme.SessionThemeResolver">
+		<property name="defaultThemeName" value="default" />
+	</bean>
+
+	<!-- Resolves view names to protected .jsp resources within the /WEB-INF/views directory -->
+	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/jsp/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="mediaTypes">
+			<map>
+				<entry key="html" value="text/html" />
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="excel" value="application/excel" />
+			</map>
+		</property>
+		<property name="viewResolvers">
+			<list>
+				<!-- view resolver会顺序查找 -->
+				<ref local="jspViewResolver"/>
+			</list>
+		</property>
+		<property name="defaultViews">
+			<list>
+				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+			</list>
+		</property>
+	</bean>
+</beans>
