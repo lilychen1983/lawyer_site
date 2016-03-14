@@ -6,7 +6,7 @@ import com.law.news.introduce.bean.NewsIntroduceForm;
 
 public interface INewsIntroduceService extends IValidService {
 	public Result  getAllNewsIntroduce() ;
-	
+	public Result getNewsDetailByid(String id);
 	
 	
 }

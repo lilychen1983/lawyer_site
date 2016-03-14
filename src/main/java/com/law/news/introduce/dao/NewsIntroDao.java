@@ -14,6 +14,7 @@ import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 
 import com.law.commons.util.DateUtil;
+import com.law.news.introduce.bean.NewsDetail;
 import com.law.news.introduce.bean.NewsIntroduceForm;
 import com.law.news.introduce.bean.NewsIntroducePo;
 
@@ -179,6 +180,43 @@ public class NewsIntroDao implements INewsIntroDao {
 			}
 		}
 		return newsIntroList;
+	}
+
+	@Override
+	public NewsDetail getNewsDetailById(String id) throws SQLException {
+		
+		String sql = "select id,intro_id,content from news where intro_id="+id;
+		Connection conn = null;
+		PreparedStatement ps = null;
+
+		NewsDetail newsDetail = new NewsDetail();
+		try {
+			conn = dataSource.getConnection();
+			conn.setAutoCommit(false);
+			ps = conn.prepareStatement(sql);
+			
+			ResultSet rs = null;
+			
+			rs = ps.executeQuery(sql);
+			while (rs.next()) {
+				newsDetail.setId(rs.getString(2));
+				newsDetail.setContent(rs.getString(3));
+			}
+			
+		} catch (Exception e) {
+			conn.rollback();
+			e.printStackTrace();
+			throw e;
+		} finally {
+		 
+			if (ps != null) {
+				ps.close();
+			}
+			if (conn != null) {
+				conn.close();
+			}
+		}
+		return newsDetail;
 	}
 
 }

@@ -2,8 +2,6 @@ package com.law.news.introduce.service;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.UUID;
-
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -13,6 +11,7 @@ import com.law.commons.AbsService;
 import com.law.commons.BaseForm;
 import com.law.commons.Result;
 import com.law.commons.util.PpsConfig;
+import com.law.news.introduce.bean.NewsDetail;
 import com.law.news.introduce.bean.NewsIntroduceForm;
 import com.law.news.introduce.bean.NewsIntroduceList;
 import com.law.news.introduce.dao.INewsIntroDao;
@@ -49,6 +48,21 @@ public class NewsIntroduceService extends AbsService implements INewsIntroduceSe
 	protected void subValid(BaseForm obj, Result result) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Result getNewsDetailByid(String id) {
+		Result result = new Result("500","Internale ERROR");
+		
+		try {
+			NewsDetail newsDetail = newsIntroDao.getNewsDetailById(id);
+			result.setResultBody(newsDetail);
+		} catch (SQLException e) {
+			logger.error(e.toString());
+			e.printStackTrace();
+		}
+		
+		return result;
 	}
 
 }
