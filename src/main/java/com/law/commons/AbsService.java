@@ -27,19 +27,7 @@ public abstract class AbsService implements IValidService {
 			return result;
 		}
 		
-		if(!REQUEST_ACTION.equals(form.getAction())){
-			result.setStatus(Result.BLANK_CODE);
-			result.setDesc("请求action的值应为request");
-			return result;
-		}
-		
-		 
-		
-		if(!this.type.equals(form.getType())){
-			result.setStatus(Result .TYPE_UNEXPECTED_CODE);
-			result.setDesc(Result .TYPE_UNEXPECTED_MSG);
-			return result;
-		}
+
 		
 		this.subValid(form,result);
 		return result;

@@ -1,4 +1,4 @@
-package com.law.user.regist.service;
+package com.law.news.introduce.service;
 
 public class ResponseField {
 	public static String RET_CODE =  "RetCode";// = ""//,Sucess

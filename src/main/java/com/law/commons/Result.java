@@ -35,9 +35,9 @@ public class Result {
 	
 	
 
-	private String id;// id String M 6位随机id
-	private String type;// type String M 固定值m1_get_verify,
-	private String action;// action String M 固定值 response
+//	private String id;// id String M 6位随机id
+//	private String type;// type String M 固定值m1_get_verify,
+//	private String action;// action String M 固定值 response
 	private String status;// status Int M 状态，0表示成功 1表示失败
 	private String desc;// desc String O 描述值，当失败的时候服务器需要提供描述信息
 
@@ -45,9 +45,9 @@ public class Result {
 
 	public String toString() {
 		StringBuffer sb = new StringBuffer("{");
-		sb.append("\"id\":").append("\"").append(this.id).append("\",");
-		sb.append("\"type\":").append("\"").append(this.type).append("\",");
-		sb.append("\"action\":").append("\"").append(this.action).append("\",");
+//		sb.append("\"id\":").append("\"").append(this.id).append("\",");
+//		sb.append("\"type\":").append("\"").append(this.type).append("\",");
+//		sb.append("\"action\":").append("\"").append(this.action).append("\",");
 		sb.append("\"status\":").append(this.status).append(",");
 		sb.append("\"desc\":").append("\"").append(this.desc).append("\"");
 
@@ -82,36 +82,36 @@ public class Result {
 
 	public Result(String type,String id) {
 
-		this.id = id;
-		this.type = type;
-		this.action = RESPONSE;
+//		this.id = id;
+//		this.type = type;
+//		this.action = RESPONSE;
 		this.status = SUCCESS_CODE;
 		this.desc = SUCCESS_MSG;
 	}
 
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getAction() {
-		return action;
-	}
-
-	public void setAction(String action) {
-		this.action = action;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//
+//	public void setId(String id) {
+//		this.id = id;
+//	}
+//
+//	public String getType() {
+//		return type;
+//	}
+//
+//	public void setType(String type) {
+//		this.type = type;
+//	}
+//
+//	public String getAction() {
+//		return action;
+//	}
+//
+//	public void setAction(String action) {
+//		this.action = action;
+//	}
 
 	public String getStatus() {
 		return status;

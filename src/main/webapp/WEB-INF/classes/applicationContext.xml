@@ -22,9 +22,9 @@
 	<!-- 配置dataSource -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
-        <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/live_notes?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=UTF8" />
+        <property name="jdbcUrl" value="jdbc:mysql://101.200.138.92:3306/law?relaxAutoCommit=true&amp;zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=UTF8" />
         <property name="user" value="root" />
-        <property name="password" value="azsxdcfv" />
+        <property name="password" value="123456" />
         
  		<property name="maxPoolSize" value="20" />
         <property name="minPoolSize" value="1" />
