@@ -7,7 +7,7 @@ public class NewsIntroduceForm extends BaseForm {
 	private String title;
 	private String image;
 	private String introduce;
-	private boolean valid;
+	private int valid;
 	private String createTime;
 	private String updateTime;
 	
@@ -29,10 +29,10 @@ public class NewsIntroduceForm extends BaseForm {
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	public boolean isValid() {
+	public int isValid() {
 		return valid;
 	}
-	public void setValid(boolean valid) {
+	public void setValid(int valid) {
 		this.valid = valid;
 	}	
 

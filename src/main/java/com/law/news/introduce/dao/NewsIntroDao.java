@@ -137,8 +137,15 @@ public class NewsIntroDao implements INewsIntroDao {
 	}
 
 	@Override
-	public List<NewsIntroduceForm> get() throws SQLException {
-		String sql = "select id,title,image,introduce,valid,create_time,update_time from news_intro";
+	public List<NewsIntroduceForm> get(int valid) throws SQLException {
+		String sql = new String("");
+		if(valid==0 || valid==1)
+		{
+			sql = "select id,title,image,introduce,valid,create_time,update_time from news_intro where valid="+valid;
+		}
+		else{
+			sql = "select id,title,image,introduce,valid,create_time,update_time from news_intro";
+		}
 		Connection conn = null;
 		PreparedStatement ps = null;
 
@@ -159,7 +166,7 @@ public class NewsIntroDao implements INewsIntroDao {
 				newsIntro.setTitle(rs.getString(2));
 				newsIntro.setImage(rs.getString(3));
 				newsIntro.setIntroduce(rs.getString(4));
-				newsIntro.setValid(rs.getBoolean(5));
+				newsIntro.setValid(rs.getInt(5));
 				newsIntro.setCreateTime(rs.getString(6));
 				newsIntro.setUpdateTime(rs.getString(7));
 				

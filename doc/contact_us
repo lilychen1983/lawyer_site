@@ -1,0 +1,16 @@
+get news list:
+URL:/contact/submit
+METHOD:POST
+PARAM:
+{
+	"name":"联系人姓名",
+	"company":"联系人公司",
+	"national":"国内或国外，下拉选",
+	"city":"下拉选“，
+	"mobile":"手机号",
+	"email":"邮箱地址",
+	"describe":"案件描述"
+}
+RETURN VALUE:
+status-0:success
+	   -1:failed

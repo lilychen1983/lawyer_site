@@ -1,0 +1,15 @@
+get company info
+RL:/company
+METHOD:GET
+PARAM:
+PARAM VALUE:
+RETURN VALUE:(db key-value)
+name
+about
+address
+telphone
+mobile
+email
+
+
+

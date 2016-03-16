@@ -11,6 +11,6 @@ import com.law.news.introduce.bean.NewsIntroducePo;
 public interface INewsIntroDao {
 	public boolean save(NewsIntroducePo registPo) throws Exception ;
 	public boolean update(NewsIntroducePo registPo) throws Exception;
-	public List<NewsIntroduceForm> get() throws SQLException;
 	public NewsDetail getNewsDetailById(String id) throws SQLException;
+	List<NewsIntroduceForm> get(int valid) throws SQLException;
 }

@@ -30,11 +30,11 @@ public class NewsIntroduceService extends AbsService implements INewsIntroduceSe
 	}
 
 	@Override
-	public Result getAllNewsIntroduce() {
+	public Result getAllNewsIntroduce(int valid) {
 		Result result = new Result("500", "Internal ERROR");
 		NewsIntroduceList newsIntroduceList = new NewsIntroduceList();
 		try {
-			List<NewsIntroduceForm>  newsIntroduce = this.newsIntroDao.get();
+			List<NewsIntroduceForm>  newsIntroduce = this.newsIntroDao.get(valid);
 			newsIntroduceList.setNewsIntroList(newsIntroduce);
 			result.setResultBody(newsIntroduceList);
 		} catch (SQLException e) {

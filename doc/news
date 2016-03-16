@@ -1,0 +1,29 @@
+get news list:
+URL:/news/list?valid=[0|1|2]
+METHOD:GET
+PARAM:valid
+PARAM VALUE:
+0-无效
+1-有效
+2-全部
+RETURN VALUE:
+{
+    "id":"1",
+    "title":"xxxx",
+    "image":"image_url",//TBD:or image in binary
+    "introduce":"dfjweoff",
+    "valid":1,
+    "createTime":"2015-03-15 12:00:12",
+    "updateTime":"2015-03-16 08:00:12"
+}
+
++==========
+get new's detail
+URL:/news/detail
+METHOD:GET
+PARAM:id(news id)
+RETURN VALUE:
+{
+	"id":"detailId",
+	"content":"news detail content"
+}

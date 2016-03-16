@@ -20,9 +20,9 @@ public class NewsIntroduceController {
 	private INewsIntroduceService newIntroduceService;
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public void getNewsIntroduceList( HttpServletResponse response) {
+	public void getNewsIntroduceList(@RequestParam(value="valid")int valid, HttpServletResponse response) {
 
-		Result result = newIntroduceService.getAllNewsIntroduce();
+		Result result = newIntroduceService.getAllNewsIntroduce(valid);
 		ResponseJsonUtils.responseJson(result.toString(), response);
 	}
 	
