@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
+        <wb-resource deploy-path="/gui" source-path="/src/web"/>
         <property name="java-output-path" value="/law_site/target/classes"/>
         <property name="context-root" value="law"/>
     </wb-module>
