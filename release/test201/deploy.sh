@@ -11,7 +11,7 @@ REPO_REMOTE_ALIAS_NAME="origin"
 REPO_REMOTE_BRANCH="develop"
 REPO_LOCAL_BRANCH="develop"
 
-DEPLOY_PROJECT_NAME="e-lenovo-ec3-bigdata"
+DEPLOY_PROJECT_NAME="law"
 DEPLOY_TARGET="test201"
 
 DEPLOY_TARGET_PATH="/home/dms/webapps_elanding/elanding-ec3-bigdata"

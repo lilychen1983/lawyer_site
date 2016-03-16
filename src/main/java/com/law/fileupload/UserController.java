@@ -5,8 +5,11 @@ import java.io.IOException;
 import java.util.HashMap;  
 import java.util.Map;  
   
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;  
   
+
 import org.apache.commons.io.FileUtils;  
 import org.springframework.stereotype.Controller;  
 import org.springframework.ui.Model;  
@@ -62,10 +65,12 @@ public class UserController {
                 System.out.println("文件名称: " + myfile.getName());  
                 System.out.println("文件原名: " + myfile.getOriginalFilename());  
                 System.out.println("========================================");  
-                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\WEB-INF\\upload\\文件夹中  
-                String realPath = request.getSession().getServletContext().getRealPath("/WEB-INF/upload");  
+                //如果用的是Tomcat服务器，则文件会上传到\\%TOMCAT_HOME%\\webapps\\YourWebProject\\upload\\文件夹中  
+                String realPath = request.getSession().getServletContext().getRealPath("/upload");  
+                String filename = UUID.randomUUID().toString();
                 //这里不必处理IO流关闭的问题，因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉，我是看它的源码才知道的  
-                FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(realPath, myfile.getOriginalFilename()));  
+//                FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(realPath, myfile.getOriginalFilename()));  
+                FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(realPath, filename));                  
             }  
         }  
         users.put(user.getUsername(), user);  

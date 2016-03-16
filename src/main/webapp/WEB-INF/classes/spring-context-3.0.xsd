@@ -91,7 +91,7 @@
 	<xsd:element name="property-placeholder">
 		<xsd:annotation>
 			<xsd:documentation><![CDATA[
-	Activates replacement of MavenProject: elanding-apps:law:1.0-SNAPSHOT @ /Users/chenyanli/Documents/崽儿/source/lawyer_site/law_site/pom.xml placeholders, resolved against the specified properties file or
+	Activates replacement of MavenProject: elanding-apps:law:1.0-SNAPSHOT @ C:\Privacy\律所_崽\workkspace\law_site_git\pom.xml placeholders, resolved against the specified properties file or
 	Properties object (if any). Falls back to resolving placeholders against JVM system properties.
 	Alternatively, define a parameterized PropertyPlaceholderConfigurer bean in the context.
 			]]></xsd:documentation>
